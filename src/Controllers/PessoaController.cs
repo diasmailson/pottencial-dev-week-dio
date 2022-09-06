@@ -14,4 +14,20 @@ public class PessoaController : ControllerBase{
         pessoa.contratos.Add(novoContrato);
         return pessoa;
     }
+
+    [HttpPost]
+    public Pessoa Post([FromBody]Pessoa pessoa){
+        return pessoa;
+    }
+    
+    [HttpPut("{id}")]
+    public string Update([FromRoute]int id, [FromBody] Pessoa pessoa){
+        Console.WriteLine(id);
+        return "Dados do id " + id + " atualizados";
+    }
+
+    [HttpDelete]
+    public string Delete([FromRoute] int id){
+        return "deletado pessoa de Id " + id;
+    }
 }
